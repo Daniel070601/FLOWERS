@@ -2,24 +2,34 @@
     box-sizing: border-box;
 }
 
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
 body {
     background-image: linear-gradient(to bottom, #060825 0%, #000 50%);
     margin: 0;
     padding: 0;
     height: 100vh;
-    align-content: center;
-    justify-items: center;
+    height: 100dvh; /* usa la altura real visible en móvil, sin las barras del navegador */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
+    overscroll-behavior: none;
+    touch-action: manipulation;
 }
 
 .ground {
-    width: 100vmin;
+    width: min(100vmin, 100vw, 100dvh);
     aspect-ratio: 1.5;
     overflow: visible;
     position: relative;
     transform-origin: center center;
     transform: scale(2);
     animation: shrink 1.5s ease-in forwards 4s;
+    flex-shrink: 0;
 }
 
 .flower-container {
